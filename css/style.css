@@ -162,7 +162,8 @@ h3 {
     font-weight: 700;
     margin-bottom: 25px;
 }
-.sub-cta {
+/* ↓ spanにhoverかけてたやつ×××
+    .sub-cta {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -184,6 +185,27 @@ h3 {
     background-color: #ebb359;
     transition: 0.25s;
 }
+ ↑ spanにhoverかけてたやつ××× */
+.sub-cta {
+    display: inline-block;
+    padding: 15px 9.6px;
+    border-radius: 8px;
+}
+.sub-cta:hover {
+    background-color: #ebb359;
+    transition: 0.25s;
+}
+/* hover効かない問題。
+クラス名と:hoverの間のスペースが原因だった！
+ここにスペースを入れると、「●●クラスの中にある要素（子孫）がhoverされた時」みたいな意味になるらしい。だから.sub-ctaの子であるspanにしか効かなかったんだ。
+”スペース＝子孫”っていう認識。
+正しくは「.sub-cta:hover {}」。
+
+あとボタンにはdisplay:flexじゃなくてdisplay:inline-blockを使うらしい。
+aタグはデフォルトでinline要素なので文字サイズ＝要素サイズになる。だからspanのサイズにしかaタグへの指定が効かなかった。これをinline-blockにすることで、block要素としてサイズ調整とかができるようになるみたい。
+これでpaddingでサイズ調整をする。
+
+そもそもボタンにspanをつけるのは、アイコン＋文字などの場合。アイコンと文字それぞれで指定する、文字サイズを変えたいとか。*/
 .hero-right {
     display: flex;
     align-items: center;
