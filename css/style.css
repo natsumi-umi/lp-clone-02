@@ -452,3 +452,16 @@ small {
     font-size: 10px;
     line-height: 17px;
 }
+
+/* mb
+-------------------- */
+@media(max-width: 480px) {
+    .align-center {
+        width: 480px;
+        margin: 0 auto;
+    }
+
+    .js-nav {
+        display: none;
+    }
+}
